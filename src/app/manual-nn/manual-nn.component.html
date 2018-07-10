@@ -1,0 +1,11 @@
+<svg [attr.width]="X_MAX" [attr.height]="Y_MAX">
+  <circle [attr.r]="POINT_RADIUS" *ngFor="let point of points"
+          [attr.cx]="point.x" [attr.cy]="point.y"
+          [attr.fill]="point.guessed === -1 ? 'blue' : 'red'"></circle>
+  <line x1="0" [attr.x2]="X_MAX"
+        y1="0" [attr.y2]="Y_MAX"
+        stroke="purple"></line>
+</svg>
+<div>
+  <button (click)="initTraining()">Restart training</button>
+</div>

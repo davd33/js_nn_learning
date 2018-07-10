@@ -1,0 +1,56 @@
+$c-nav-el-bg: darkslateblue;
+$c-nav-el-bg-hover: rgba(57, 92, 226, 0.48);
+$c-nav-el-txt: white;
+$c-nav-box-s: #26435fcc;
+$c-nav-box-bg: linear-gradient(to bottom, white, #1e90ff99 60%, dodgerblue 100%);
+
+%nav-el {
+  padding: 10px;
+  cursor: pointer;
+  color: $c-nav-el-txt;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  &:hover {
+    background: $c-nav-el-bg-hover;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  box-shadow: 0 -11px 2px 12px $c-nav-box-s;
+  background: $c-nav-box-bg;
+
+  a {
+    @extend %nav-el;
+  }
+
+  .sub-nav {
+    @extend %nav-el;
+
+    position: relative;
+
+    &:hover a {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    a {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      z-index: -1;
+      opacity: 0;
+
+      background: $c-nav-el-bg;
+
+      &:hover {
+        background: $c-nav-el-bg-hover;
+      }
+    }
+  }
+}
